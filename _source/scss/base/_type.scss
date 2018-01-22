@@ -11,9 +11,10 @@ body {
   font-style: normal;
   line-height: 1.5;
   color: $color-grey-dark;
-  font-family: $font-primary;
+  font-family: $font-secondary;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-weight: 600;
 }
 
 h1,
@@ -23,75 +24,50 @@ h4,
 h5,
 h6 {
   margin: 0;
-  font-family: $font-secondary;
-  font-weight: 400;
+  font-family: $font-primary;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  &.underline {
+    border-bottom: 2px solid;
+    display: inline-block;
+  }
 }
 
 h1 {
-  font-size: 3.8rem;
+  font-size: 36px;
 
   @include MQ(S) {
-    font-size: 9.0rem;
-    letter-spacing: 0.18rem;
-    line-height: 48px;
+    font-size: 45px;
   }
 }
 
 h2 {
-  font-size: 3.2rem;
-  letter-spacing: 0.16rem;
+  font-size: 32px;
 
   @include MQ(S) {
-    font-size: 6.2rem;
+    font-size: 40px;
   }
 }
 
-h3 {
-  font-size: 2.4rem;
-  line-height: 32px;
-
-  @include MQ(XS) {
-    font-size: 3.2rem;
-    letter-spacing: 0.04rem;
-    line-height: 44px;  
-  }
-}
-
-h4 {
-  font-size: 1.6rem;
-  line-height: 21px;
+h2 {
+  font-size: 32px;
 
   @include MQ(S) {
-    font-size: 2.1rem;
-    line-height: 30px;
-    letter-spacing: 0.035rem;  
+    font-size: 40px;
   }
 }
 
 p {
   font-size: 1.4rem;
-  color: $color-grey-dark;
-  line-height: 23px;  
+  font-family: $font-secondary;
 
   @include MQ(S) {
     font-size: 1.6rem; 
     line-height: 26px;    
   }
-
-  &.small {
-    font-size: 1.3rem;
-    line-height: 23px;
-    letter-spacing: 0.025rem;
-  }
 }
 
-label {
-  cursor: default;
-  &.main-label {
-    font-family: $font-secondary;
-    font-style: italic;
-  }
-}
 
 // Globals
 

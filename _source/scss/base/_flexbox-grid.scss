@@ -1,10 +1,13 @@
 // Flexbox Grid
 // ------------------------------------------------------------------------------------------------
 
-.container-fluid,
 .container {
-  margin-right: auto;
-  margin-left: auto;
+  padding: 0 7px;
+  margin: 0 15px;
+
+  // &.full-width {
+  //   width: 100%;
+  // }
 }
 
 .container-fluid {
@@ -18,7 +21,6 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-flex: 0;
-  -ms-flex: 0 1 auto;
   flex: 0 1 auto;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -28,6 +30,9 @@
   flex-wrap: wrap;
   margin-right: -0.5rem;
   margin-left: -0.5rem;
+
+  // use this for IE
+  -ms-flex: 1 1 auto;
 }
 
 .row.reverse {
@@ -270,6 +275,10 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .container {
+    padding: 0 7px;
+    margin: 0 15px;
+  }
 
   .col-sm,
   .col-sm-1,
@@ -498,6 +507,7 @@
 }
 
 @media only screen and (min-width: 1024px) {
+
   .col-md,
   .col-md-1,
   .col-md-2,
@@ -725,6 +735,13 @@
 }
 
 @media only screen and (min-width: 1199px) {
+
+  .container {
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+
+
   .col-lg,
   .col-lg-1,
   .col-lg-2,
@@ -954,3 +971,32 @@
 .x-padding {
   padding: 0 1.5rem;
 }
+
+// jk custom grid styles 
+
+.col-flushed {
+  padding: 0;
+}
+
+.col-center {
+  text-align: center;
+}
+
+.col-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  &.pull-in {
+    @media only screen and (min-width: 768px) {
+      margin: 0 -1.5rem;
+    }
+  }
+}
+
+// @media only screen and (min-width: 1800px) {
+//   .container {
+//     max-width: 100%;
+//   }
+// }

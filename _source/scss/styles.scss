@@ -26,4 +26,7 @@
 				'partials/navigation',
 				'partials/footer';
 
-// Specific project styles, add any section specific sass modules here (Pages)
+// Import Vendor
+
+@import 		'vendor/component',
+				'vendor/content';

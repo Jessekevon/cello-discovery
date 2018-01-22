@@ -21,7 +21,7 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width">
-	<title><?php wp_title( '|', true, 'right' ); ?></title>
+	<title><?php wp_title( '|', true, 'right' ); ?>Cello Discovery</title>
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
@@ -34,15 +34,17 @@
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
 	
-	<!-- <nav class="main-naviation"> -->
-		<!-- <a href="<//?php echo get_home_url(); ?>" class="logo"></a> -->
-		<!-- <div class="nav-controls">
-			<span class="line line-1"></span>
-			<span class="line line-2"></span>
-			<span class="line line-3"></span>
-		</div> -->
+	<div class="navigation">
+		<div class="nav-container">
+			<div class="brand">
+				<a href="#!"><img src="<?php echo get_template_directory_uri(); ?>/images/logo.svg"></a>
+			</div>
 
-	<!-- <//?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-items' ) ); ?> -->
-	<!-- </nav> -->
+			<nav>
+				<div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+				<?php wp_nav_menu(['theme_location' => 'header-primary', 'menu_class' => 'menu-header-primary']); ?>
+			</nav>
+		</div>
+	</div>
 
 	<div id="main" class="site-main">

@@ -1,1 +1,98 @@
-// Modal Style
+.modal {
+    background: rgba( $color-blue-dark, .9 );
+    // background: $color-blue;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 1000;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    transform: translateY(-100%);
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include global-transition;
+
+    &.active {
+        transform: translateY(0);
+        opacity: 1;
+        @include global-transition;
+    }
+
+    &.centered {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .menu {
+      max-width: 900px;
+      margin: 0 auto;
+      width: 90%;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: $color-black;
+      flex-direction: column;
+
+      @include MQ(S) {
+        width: 55%;
+      }
+
+      .logo {
+        svg {
+          width: 100px;
+          height: 100px;
+          display: inline-block;
+          margin-bottom: 40px;
+        }
+      }
+
+      ul {
+        padding: 0;
+        text-align: center;
+        max-width: 340px;
+        margin: 0 auto;
+
+        li {
+          list-style: none; 
+          line-height: 2;
+          font-size: 16px;
+        }
+      }
+    }
+}
+
+.close {
+  position: absolute;
+  right: 3vh;
+  top: 3vh;
+  width: 32px;
+  height: 32px;
+  opacity: 1;
+  cursor: pointer;
+
+  &:before,
+  &:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: $color-white;
+  }
+
+  &:before {
+    transform: rotate(45deg);
+  }
+
+  &:after {
+    transform: rotate(-45deg);
+  }
+}

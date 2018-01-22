@@ -1,2 +1,31 @@
 // Buttons
 // ------------------------------------------------------------------------------------------------
+
+.btn {
+    padding: 12px;
+    background: $color-green;
+    color: $color-blue-dark;
+    cursor: pointer;
+    border-radius: 5px;
+    @include global-transition;
+
+    &:hover {
+        background: $color-blue-dark;
+        color: $color-green;
+        @include global-transition;
+    }
+}
+
+.button-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.play-btn {
+    height: 100px;
+    width: 87px;
+    position: relative;
+    z-index: 5;
+    cursor: pointer;
+}
