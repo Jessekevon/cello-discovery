@@ -21,60 +21,31 @@ get_header(); ?>
                                     <!-- <button type="sumbit" class="submit">Search</button> -->
                                 </form>
                             </div>
-                            
 
                             <div class="filter-drawer">
                                 <div class="filter-inner">
-                                    <!-- <ul class="advanced-filter-menu check-select" data-type="checkbox" data-parameter="taxonomy-terms"> 
-                                        <div>
-                                            <li>
-                                                <div class="checkbox-wrap">
-                                                    <input id="advanced" value="advanced" type="checkbox">
-                                                    <label for="advanced">Advanced</label>
-                                                </div>
-                                            </li>
-
-                                            <li>
-                                                <div class="checkbox-wrap">
-                                                    <input id="intermediate" value="intermediate" type="checkbox">
-                                                    <label for="intermediate">Intermediate</label>
-                                                </div>
-                                            </li>
-
-                                            <li>
-                                                <div class="checkbox-wrap">
-                                                    <input id="beginner" value="beginner" type="checkbox">
-                                                    <label for="beginner">Beginner</label>
-                                                </div>
-                                            </li>
-                                        </div> 
-                                    </ul> -->
 
                                     <ul class="advanced-filter-menu check-select" data-type="checkbox" data-parameter="taxonomy-terms"> 
+                                    
                                         <div>
-                                            <li>
-                                                <div class="checkbox-wrap">
-                                                    <input id="cello-introduction" value="cello-introduction" type="checkbox">
-                                                    <label for="cello-introduction">Intro To Cello</label>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="checkbox-wrap">
-                                                    <input id="cello-basics" value="cello-basics" type="checkbox">
-                                                    <label for="cello-basics">Cello Basics</label>
-                                                </div>
-                                            </li>
+                                        <?php
+                                            $taxonomy_t = 'beginning-videos';
+                                            $terms_t = get_terms($taxonomy_t); // Get all terms of a taxonomy
 
-                                            <li>
-                                                <div class="checkbox-wrap">
-                                                    <input id="cello-set-up" value="cello-set-up" type="checkbox">
-                                                    <label for="cello-set-up">Cello Set Up</label>
-                                                </div>
-                                            </li>
+                                            if ( $terms_t && !is_wp_error( $terms_t ) ) :
+                                                ?>
+                                                    <?php foreach ( $terms_t as $term_t ) { ?>
+                                                        <li>
+                                                            <div class="checkbox-wrap">
+                                                                <input id="<?php echo $term_t->slug; ?>" value="<?php echo $term_t->slug; ?>" type="checkbox">
+                                                                <label for="<?php echo $term_t->slug; ?>"><?php echo $term_t->name; ?></label>
+                                                            </div>
+                                                        </li>
+                                                    <?php } ?>
+                                            <?php endif; ?>
                                         </div> 
                                     </ul>
 
-                                        
                                     <!-- If we decide we want a button for filtering -->
                                     <!-- <button type="button" class="submit" id="apply-filters">Apply Filters</button> -->
 
@@ -86,10 +57,10 @@ get_header(); ?>
                 </div>
 
                 <div class="col-xs-9">
-                    <section class="intro">
+                    <section class="no-padding">
                         <div class="container">
                             <div class="row center-xs">
-                                <div class="col-xs-12 text-center">
+                                <div class="col-xs-12">
                                     <h2 class="underline">Video Classes: Beginning</h2>
                                 </div>
                             </div>
@@ -98,7 +69,7 @@ get_header(); ?>
 
                     <section class="video-list">
                         <div class="row">
-                            <?php echo do_shortcode('[ajax_load_more id="videos" container_type="div" post_type="beginning-video" posts_per_page="30" taxonomy="beginning-videos" search="'. $term .'" taxonomy_terms="" taxonomy_operator="IN" scroll="false" transition="fade"]'); ?>
+                            <?php echo do_shortcode('[ajax_load_more id="videos" container_type="div" post_type="beginning-video" posts_per_page="30" taxonomy="beginning-videos" search="'. $term .'" taxonomy_terms="" taxonomy_operator="IN" scroll="false" order="ASC" orderby="title" transition="fade"]'); ?>
                         </div>
                     </section>
                 </div>

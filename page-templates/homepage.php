@@ -10,7 +10,7 @@
 get_header(); ?>
 	<main class="home">
 		<div class="hero pull">
-			<!-- <div class="videobg">
+			<div class="videobg">
 				<div class="videobg-width">
 					<div class="videobg-aspect">
 						<div class="videobg-make-height">
@@ -20,7 +20,7 @@ get_header(); ?>
 						</div>
 					</div>
 				</div>
-			</div> -->
+			</div>
 		</div>
 
 		<section class="intro">

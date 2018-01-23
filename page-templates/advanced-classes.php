@@ -25,46 +25,24 @@ get_header(); ?>
 
                             <div class="filter-drawer">
                                 <div class="filter-inner">
-                                    <!-- <ul class="advanced-filter-menu check-select" data-type="checkbox" data-parameter="taxonomy-terms"> 
-                                        <div>
-                                            <li>
-                                                <div class="checkbox-wrap">
-                                                    <input id="advanced" value="advanced" type="checkbox">
-                                                    <label for="advanced">Advanced</label>
-                                                </div>
-                                            </li>
-
-                                            <li>
-                                                <div class="checkbox-wrap">
-                                                    <input id="intermediate" value="intermediate" type="checkbox">
-                                                    <label for="intermediate">Intermediate</label>
-                                                </div>
-                                            </li>
-
-                                            <li>
-                                                <div class="checkbox-wrap">
-                                                    <input id="beginner" value="beginner" type="checkbox">
-                                                    <label for="beginner">Beginner</label>
-                                                </div>
-                                            </li>
-                                        </div> 
-                                    </ul> -->
-
                                     <ul class="advanced-filter-menu check-select" data-type="checkbox" data-parameter="taxonomy-terms"> 
+                                    
                                         <div>
-                                            <li>
-                                                <div class="checkbox-wrap">
-                                                    <input id="pro-tips" value="pro-tips" type="checkbox">
-                                                    <label for="pro-tips">Pro Tips</label>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="checkbox-wrap">
-                                                    <input id="advanced-techniques" value="advanced-techniques" type="checkbox">
-                                                    <label for="advanced-techniques">Advanced Techniques</label>
-                                                </div>
-                                            </li>
+                                        <?php
+                                            $taxonomy_t = 'advanced-videos';
+                                            $terms_t = get_terms($taxonomy_t); // Get all terms of a taxonomy
 
+                                            if ( $terms_t && !is_wp_error( $terms_t ) ) :
+                                                ?>
+                                                    <?php foreach ( $terms_t as $term_t ) { ?>
+                                                        <li>
+                                                            <div class="checkbox-wrap">
+                                                                <input id="<?php echo $term_t->slug; ?>" value="<?php echo $term_t->slug; ?>" type="checkbox">
+                                                                <label for="<?php echo $term_t->slug; ?>"><?php echo $term_t->name; ?></label>
+                                                            </div>
+                                                        </li>
+                                                    <?php } ?>
+                                            <?php endif; ?>
                                         </div> 
                                     </ul>
 
@@ -80,10 +58,10 @@ get_header(); ?>
                 </div>
 
                 <div class="col-xs-9">
-                    <section class="intro">
+                    <section class="no-padding">
                         <div class="container">
                             <div class="row center-xs">
-                                <div class="col-xs-12 text-center">
+                                <div class="col-xs-12">
                                     <h2 class="underline">Video Classes: Advanced</h2>
                                 </div>
                             </div>

@@ -6,12 +6,6 @@ function site_scripts() {
 
 	wp_enqueue_script('jquery-ui', 'https://code.jquery.com/ui/1.12.1/jquery-ui.js', [], FALSE, TRUE);
 
-	// Vendor
-	wp_enqueue_script( 'modernizr.custom', get_template_directory_uri() . '/vendor/ButtonComponentMorph/js/modernizr.custom.js', array(), null, true );
-
-	wp_enqueue_script( 'uiMorphingButton_fixed', get_template_directory_uri() . '/vendor/ButtonComponentMorph/js/uiMorphingButton_fixed.js', array(), null, true );
-	wp_enqueue_script( 'classie', get_template_directory_uri() . '/vendor/ButtonComponentMorph/js/classie.js', array(), null, true );
-
 	// Main
 	wp_enqueue_script( 'main', get_template_directory_uri() . '/js/main.js', array(), null, true );
 }
