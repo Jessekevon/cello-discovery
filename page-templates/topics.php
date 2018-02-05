@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Forum
+ * Template Name: Topics
  *
  * @package WordPress
  * @subpackage cello-discovery
@@ -11,7 +11,8 @@ get_header(); ?>
 	<main class="home">
         <section>
             <div class="container">
-                <?php echo do_shortcode('[bbp-forum-index]');?>
+                <?php echo do_shortcode('[bbp-topic-index]');?>
+                <?php echo do_shortcode('[bbp-topic-form]');?>
             </div>
         </section>
 

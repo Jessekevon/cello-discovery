@@ -9,7 +9,7 @@
 
 get_header(); ?>
 	<main class="resources">
-        <section class="intro">
+        <section>
             <div class="container">
                 <div class="row center-xs">
                     <div class="col-xs-12 text-center">
@@ -21,7 +21,7 @@ get_header(); ?>
 
         <section class="checkout">
             <div class="container">
-                <div class="col-xs-12 text-center">
+                <div class="col-xs-8 text-center">
                     <?php echo do_shortcode('[download_checkout]');?>
                 </div>
             </div>

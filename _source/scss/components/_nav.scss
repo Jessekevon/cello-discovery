@@ -25,10 +25,14 @@ $link-hover-color: $color-green;
 .brand {
   position: absolute;
   width: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   height: 70px;
+  display: none;
+
+  @include MQ(S) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 // Container with no padding for navbar
@@ -40,6 +44,13 @@ $link-hover-color: $color-green;
 // Navigation 
 nav {
   float: right;
+  position: relative;
+  display: flex;
+
+  // @media screen and (max-width: 1024px) {
+  //   height: 100vh;
+  //   background: $color-green;
+  // }
 
   ul {
     list-style: none;
@@ -61,12 +72,16 @@ nav {
         display: block;
         margin: 0 10px;
         padding: 5px 0;
-        color: $nav-font-color;
+        color: $color-white;
         text-decoration: none;
         font-size: 14px;
 
         &:hover {
           color: $link-hover-color;
+        }
+
+        @include MQ(M) {
+          color: $nav-font-color;
         }
 
         &:not(:only-child):after {
@@ -75,17 +90,20 @@ nav {
         }
       } 
 
-    &:nth-child(6),
-    &:nth-child(7) {
+        &.login-btn,
+        &.logout-btn,
+        &.member-btn {
+          @include MQ(M) {
             a {
-            border: 1px solid $color-green;
-            padding: 5px 15px;
+              border: 1px solid $color-green;
+              padding: 5px 15px;
 
-            &:hover {
-                background: $color-green;
-                color: $color-black;
+              &:hover {
+                  background: $color-green;
+                  color: $color-black;
+              }
             }
-        }
+          }
     }
 
       
@@ -111,7 +129,20 @@ nav {
   display: none;
   z-index: 1;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+  height: auto;
+  background: $color-white;
 }
+
+li {
+  &#menu-item-66 {
+    &:hover {
+      .sub-menu {
+        display: block !important;
+      }
+    }
+  }
+}
+
 
 /* Mobile navigation */
 
@@ -172,6 +203,7 @@ nav {
   top: 22px;
   cursor: pointer;
   padding: 10px 35px 16px 0px;
+  z-index: 15;
   span,
   span:before,
   span:after {
@@ -179,7 +211,7 @@ nav {
     border-radius: 1px;
     height: 5px;
     width: 35px;
-    background: $nav-font-color;
+    background: $color-green;
     position: absolute;
     display: block;
     content: '';
@@ -226,8 +258,9 @@ nav {
           }
         } 
 
-        &:nth-child(6),
-        &:nth-child(7) {
+        &.login-btn,
+        &.logout-btn,
+        &.member-btn {
             a {
             &:hover {
                 color: $color-black;
@@ -237,5 +270,30 @@ nav {
       }
     }
   }
+
+  .sub-menu {
+    li {
+      a {
+        color: $color-black !important;
+
+        &:hover {
+          color: $color-green !important;
+        }
+      }
+    }
+  }
 }
 
+
+@media screen and (max-width: 1024px) {
+  .menu-header-primary {
+    &.active {
+      position: fixed;
+      background: $color-black;
+      height: 100vh;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+    }
+  }
+}

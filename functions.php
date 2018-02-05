@@ -7,6 +7,7 @@ function site_scripts() {
 	wp_enqueue_script('jquery-ui', 'https://code.jquery.com/ui/1.12.1/jquery-ui.js', [], FALSE, TRUE);
 
 	// Main
+	wp_enqueue_script( 'slick', get_template_directory_uri() . '/js/slick.min.js', array(), null, true );
 	wp_enqueue_script( 'main', get_template_directory_uri() . '/js/main.js', array(), null, true );
 }
 add_action('wp_enqueue_scripts', 'site_scripts');
@@ -269,7 +270,3 @@ function get_taxonomy_term_names($taxonomy) {
 
 	return [];
 }
-
-add_filter('widget_text', 'do_shortcode');
-
-

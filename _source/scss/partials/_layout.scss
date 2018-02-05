@@ -1,20 +1,37 @@
 // Basic Layout
 // ------------------------------------------------------------------------------------------------
 
+.row {
+    width: 100%;
+}
+
 section {
-    padding: 65px 0;
+    padding: 50px 15px;
+
+    @include MQ(S) {
+        padding: 65px 0;
+    }
 
     &.no-padding {
         padding: 0;
     }
 
+    &.no-padding-top {
+        padding-top: 0;
+    }
+
     h2 {
         text-align: center;
-        margin-bottom: 60px;
-        font-size: 26px;
         letter-spacing: 2px;
         text-transform: uppercase;
         font-weight: 800;
+        margin-bottom: 30px;
+        font-size: 22px;
+
+        @include MQ(S) {
+            margin-bottom: 60px;
+            font-size: 26px;
+        }
     }
 
     &.three-col {
@@ -32,9 +49,16 @@ section {
 
 .intro {
     p {
-        font-size: 24px;
+        font-size: 18px;
         line-height: 36px;
         text-align: center;
+        max-width: 900px;
+        margin: 0 auto;
+
+        @include MQ(S) {
+        font-size: 24px;
+        line-height: 42px;
+        }
     }
 }
 
@@ -56,6 +80,15 @@ section {
 // Membership
 
 .membership {
+    h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-weight: 300;
+    }
+
     .button-wrap {
         margin-bottom: 0;
     }
@@ -104,11 +137,22 @@ section {
 }
 
 .video-list {
-    padding: 0 40px 0 0;
+    padding: 0;
+
+    @include MQ(S) {
+        padding: 0 40px 0 0;
+    }
 }
 
+
+
 .side-bar {
-    padding-right: 40px;
+    margin-bottom: 40px;
+
+    @include MQ(S) {
+        padding-right: 40px;
+        margin: 0;
+    }
 }
 
 // About
@@ -119,7 +163,8 @@ section {
         background: $color-white;
         padding-bottom: 75px;
         height: calc(100vh - 220px);
-        max-height: 700px;
+        max-height: 600px;
+        margin-top: 75px;
 
         .video-info {
             padding: 0 25px;
@@ -168,6 +213,10 @@ section {
         margin-bottom: 0;
         height: 90px;
         width: 90px;
+
+        @media screen and (max-width: 991px) {
+            margin-bottom: 60px;
+        }
     }
 
     .middle-xs {
@@ -195,7 +244,21 @@ section {
 // Testimonial
 
 .testimonial {
-    padding: 0 40px;
+    margin: 0 -30px 75px -30px;
+
+    @include MQ(S) {
+        margin: 0 0 75px 0;
+
+        padding: 0 40px;
+    }
+
+    p {
+        &.source {
+            font-style: italic;
+            font-size: 14px;
+            padding-left: 30px;
+        }
+    }
 }
 
 // Video Lists
@@ -241,14 +304,16 @@ section {
     }
 }
 
-// .video-classes {
-//     .intro {
-//         margin-bottom: 60px;
-//     }
-// }
+.video-classes {
+    h2 {
+        margin-bottom: 30px;
+    }
+}
 
 .resources {
     &.yellow-bg {
+        text-align: left;
+
         h2 {
             &.underline {
                 margin-bottom: 40px;
@@ -305,6 +370,10 @@ section {
 // Glossary
 
 .glossary {
+    h2 {
+        margin-bottom: 40px;
+    }
+
     h3 {
         font-size: 18px;
         margin-bottom: 10px;
@@ -316,13 +385,70 @@ section {
         text-align: left;
         font-size: 14px;
     }
+
+    a {
+        &:hover {
+            color: $color-green;
+        }
+    }
 }
 
 // Additional Resources
 
+.resources-wrapper {
+    position: relative;
+    padding-bottom: 100px;
+
+    .drawer-arrow {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 40px;
+        margin: 0 auto;
+        text-align: center;
+        cursor: pointer;
+        display: inline-block;
+        width: 150px;
+        @include global-transition;
+
+        &.active {
+            transform: rotate(180deg);
+            @include global-transition;
+
+        }
+    }
+}
+
 .additional-resources {
     // height: 155px;
     // overflow: hidden;
+    position: relative;
+    max-height: 200px;
+    transition: max-height 0.25s ease-out;
+    overflow: hidden;
+
+    &:after {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        left: 0;
+        pointer-events: none;
+        background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255, 1) 90%);
+        width: 100%;
+        height: 4em;
+        opacity: 1;
+    }
+
+
+    &.active {
+        max-height: 900px;
+        transition: max-height 0.25s ease-in;
+
+        &:after {
+            opacity: 0;
+        }
+    }
 
     #edd-purchase-button, .edd-submit, input[type=submit].edd-submit {
         border: 0;
@@ -342,6 +468,7 @@ section {
 
     p {
         font-family: $font-primary;
+        padding-right: 10%;
     }
 
 
@@ -352,70 +479,227 @@ section {
             border-bottom: 1px solid $color-black;
             padding-bottom: 5px;
             margin-bottom: 5px;
+
+            a {
+                font-family: $font-primary;
+            }
         }
     }
 }
 
 
-form {
-    &#pms_login {
-        background: $color-white;
-        padding: 60px 60px 60px 30px;
-
-        label {
-            font-size: 14px;
-            margin-bottom: 10px;
-            display: inline-block;
-            // font-weight: 300;
-        }
-
+.resource-box {
+    &:first-of-type {
+        margin-left: -30px;
     }
 }
 
-.pms-form input[type=text], .pms-form input[type=password], .pms-form input[type=email], .pms-form input[type=textarea], #pms_login input[type=text], #pms_login input[type=password], #pms_login input[type=email] {
-    width: 100%;
-    font-size: 14px;
-    height: 40px;
-    padding: 0px 15px 0px 15px;
-    
-    outline: none;
-    color: #726659;
-    margin-bottom: 10px;
-    
-    border: solid 1px #b3aca7;
-    
-    transition: all 0.3s ease-in-out;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -ms-transition: all 0.3s ease-in-out;
+.related-posts {
+    .video-wrapper {
+        height: 133px;
+        min-height: 133px;
+        background-color: $color-black;
+        width: 100%;
+        padding-right: 40px;
+        margin-bottom: 10px;
 
+        &:nth-last-of-type() {
+            padding-right: 0;
+        }
+    }
 }
 
-input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
-    background-color: $color-white !important;
-}
+.related-posts {
+    position: relative;
 
-.login-submit {
-    text-align: center;
+    .slider {
+        max-width: 900px;
+        margin: 0 auto;
+        position: relative;
+    }
 
-    input {
-        padding: 12px;
-        background: $color-green;
-        color: $color-blue-dark;
-        cursor: pointer;
-        border-radius: 5px;
-        margin-top: 40px;
-        min-width: 150px;
-        border: 0;
+    .slick-slide {
+        margin: 0 20px;
+        padding: 0 20px;
+    }
 
-        @include global-transition;
-
+    .slick-next,
+    .slick-prev {
         &:hover {
-            background: $color-blue-dark;
-            color: $color-green;
-            @include global-transition;
+            background: transparent !important;
         }
+    }
 
+    .slick-next::before {
+            background: url('../../images/right_arrow.svg') no-repeat;
+
+            content: "";
+            display: block;
+            height: 40px;
+            width: 30px;
+            background-size: 30px;
+    }
+    .slick-prev::before {
+            background: url('../../images/left_arrow.svg') no-repeat;
+            //   background-image: url('../../images/hero-img.png');
+
+            content: "";
+            display: block;
+            height: 40px;
+            width: 30px;
+            background-size: 30px;
+    }
+
+    .slick-list {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .slick-prev,
+    .slick-next {
+        position: absolute;
+        top: 50%;
+        top: 65px;
     }
 }
 
+.edd_checkout_user_info {
+    text-align: left;
+}
+
+#edd_checkout_form_wrap fieldset {
+    border: 1px solid #eee;
+    padding: 1.387em;
+    margin: 0 0 21px;
+    text-align: left;
+}
+
+#edd_checkout_form_wrap label {
+    font-weight: 300;
+    /* display: block; */
+    position: relative;
+    line-height: 1.5;
+    font-size: 14px;
+    margin: 0 0 20px 0;
+    display: inline-block;
+}
+
+#edd_checkout_form_wrap span.edd-description {
+    color: #666;
+    font-size: 80%;
+    display: block;
+    margin: 0 0 20px 0;
+}
+
+#edd_checkout_form_wrap legend {
+    display: none;
+}
+
+#edd_checkout_form_wrap input.edd-input, #edd_checkout_form_wrap textarea.edd-input {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.pms-alert {
+    color: $color-white;
+    font-size: 28px;
+    letter-spacing: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    a {
+        margin-top: 25px;
+        text-decoration: underline;
+        color: $color-green;
+    }
+
+}
+
+.resources-section {
+    section {
+        padding: 30px 0;
+    }
+
+    p {
+        &.large {
+            font-weight: 800;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: $color-green;
+    margin-left: 5px;
+}
+
+.cart-info {
+    display: none;
+    @include MQ(L) {
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+}
+
+.cart-count {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 12px;
+    background: #FF6F69;
+    height: 20px;
+    width: 20px;
+    align-items: center;
+    border-radius: 50%;
+    color: $color-white;
+    position: absolute;
+    bottom: 13px;
+    right: -10px;
+}
+
+.checkout {
+    .col-xs-8 {
+        margin: 0 auto;
+    }
+}
+
+// #edd-purchase-button, .edd-submit, input[type=submit].edd-submit {
+//     max-width: 200px;
+//     margin: 20px auto;
+//     border: 0 !important;
+// }
+
+p {
+    &.edd_error {
+        font-size: 13px;
+    }
+}
+
+.login-remember,
+.pms-subscription-plan {
+    input {
+        width: auto;
+        height: auto;
+    }
+}
+
+.resource-box {
+    &:nth-of-type(5) {
+        margin-left: -30px;
+    }
+}

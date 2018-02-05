@@ -34,63 +34,97 @@ get_header(); ?>
 				<!-- Otherwise tradtional full width design -->
 				<div class="row">
 					<div class="col-xs-12">
+						<!-- <div class="videoContainer">
+							<iframe src="https://player.vimeo.com/video/200768478" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+						</div> -->
+
 						<div class="video-lg">
 							<div class="videobg">
-								<div class="videobg-width">
-									<div class="videobg-aspect">
-										<div class="videobg-make-height">
-											<div class="videobg-hide-controls">
-												<iframe src="https://player.vimeo.com/video/200768478" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-											</div>
-										</div>
-									</div>
+									<iframe src="https://player.vimeo.com/video/<?php echo the_field('video_url'); ?>" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 								</div>
 							</div>
-
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<section class="class-levels three-col">
+		<section class="class-levels three-col resources-wrapper">
 			<div class="container">
-				<div class="row middle-xs">
-				  <div class="col-xs-2">
-						<p>Additional Resources</p>
+				<div class="row additional-resources">
+				  <div class="col-xs-12 col-sm-2">
+						<h3 class="underline">Additional Resources</h3>
+						<ul>
+							<?php
+							if( have_rows('additional_resources') ):
+								while ( have_rows('additional_resources') ) : the_row(); ?>
+									<li><?php the_sub_field('url'); ?></li>
+							  <?php	endwhile;
+							endif; ?>
+						</ul>
 				  </div>
-				  <div class="col-xs-9 col-xs-offset-1">
-					<h2 class="underline">Tuning YOur Cello</h2>
-					  <p>The beginner cirriculum is designed for the student with no prior experience playing the cello. Very detailed lessons are presented to teach the student everything from how to unpack the cello as well as where  to find a good cello.  There are dozens of lessons to watch BEFORE the first sounds are ever made on the cello. All the material is presented in a very detailed and logical order so that the new student will be successful in their quest to become a cellist.</p>
+				  <div class="col-xs-12 col-sm-9 col-sm-offset-1">
+					<?php if( get_field('partner_name') ): ?>
+					<h2 class="underline"><?php the_field('video_description_title'); ?></h2>
+					<?php else: ?>
+					<h2 class="underline"><?php the_title(); ?></h2>
+					<?php endif; ?>
+					  <p><?php the_field('video_description_text'); ?></p>
 				  </div>
 				</div>
 			</div>
+
+			<div class="drawer-arrow">
+				<img src="<?php echo get_template_directory_uri(); ?>/images/dropdpwn.svg">								
+			</div>
 		</section>
 
-		<section class="releated-posts green-bg three-col">
+		<section class="related-posts green-bg three-col">
 			<div class="container">
 				<div class="row center-xs">
 					<h2 class="underline">Other Videos in This Category</h2>
 				</div>
-				<div class="row center-xs">
-					<div class="col-xs-12 col-sm-3">
-						<div class="related-video">
-						
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-3">
-						<div class="related-video">
-						
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-3">
-						<div class="related-video">
-						
-						</div>
-					</div>
+					
+					<div class="slider">
+						<?php	// get the custom post type's taxonomy terms
+							
+							$custom_taxterms = wp_get_object_terms( $post->ID, 'advanced-videos', array('fields' => 'ids') );
+							// arguments
+							$args = array(
+							'post_type' => 'advanced-video',
+							'post_status' => 'publish',
+							'orderby' => 'rand',
+							'tax_query' => array(
+								array(
+									'taxonomy' => 'advanced-videos',
+									'field' => 'id',
+									'terms' => $custom_taxterms
+								)
+							),
+							'post__not_in' => array ($post->ID),
+							);
+							$related_items = new WP_Query( $args );
+							// loop over query
+							if ($related_items->have_posts()) : 
+							while ( $related_items->have_posts() ) : $related_items->the_post(); ?>
+								<div>
+									<a href="<?php the_permalink(); ?>">
+										<div class="video-wrapper" style="background-image: url('<?php echo get_field('video_thumbnail');?>')">
+											
+										</div>
+									</a>
+									<?php the_title(); ?>
+								</div>
+							<?php 
+								endwhile;
+								endif;
+								wp_reset_postdata(); 
+							?>
 				</div>
 			</div>
+ 			 
 		</section>
+
 	</main>
 
 

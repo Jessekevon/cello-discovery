@@ -8,45 +8,51 @@
  */
 
 get_header(); ?>
-	<main class="resources">
-        <section class="intro">
+	<main class="resources-section">
+        <section class="intro no-padding-top">
             <div class="container">
-                <div class="row center-xs">
-                    <div class="col-xs-12 text-center">
-                        <h2 class="underline">Resources</h2>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h1 class="underline">Resources</h1>
                     </div>
                 </div>
             </div>
         </section>
 
-		<section class="resources yellow-bg three-col">
+		<section class="resources three-col">
 			<div class="container">
-                <div class="row center-xs text-center">
-                    <h2 class="underline">Purchasing Policies</h2>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p class="large">Purchasing Policies</p>
+                        <p><?php the_field('resource_intro_text');?></p>
+                    </div>
                 </div>
 			</div>
 		</section>
 
 		<section class="resource-list with-icons three-col">
 			<div class="container">
-				<div class="row center-xs">
-					<h2 class="underline">Instant Downloads</h2>
+				<div class="row">
+                    <p class="large">Instant Downloads</p>
 				</div>
-				<div class="row center-xs text-center">
-                    <?php foreach ($cfs->get('resources') AS $resource): ?> <!-- open external loop -->
-                        <div class="col-xs-12 col-sm-3">
-                                <div class="download-box">
-                                    <div class="icon">
-                                        <img src="<?php echo $resource['resource_icon']?>">
+				<div class="row">
+                    <?php
+						if( have_rows('resources') ):
+                            while ( have_rows('resources') ) : the_row(); ?>
+                            <div class="col-xs-12 col-sm-3 resource-box">
+                                    <div class="download-box">
+                                        <div class="icon">
+                                            <img src="<?php the_sub_field('resource_icon'); ?>">
+                                        </div>
+                                        <div class="resource-btn">
+                                            <?php the_sub_field('resource_url'); ?>
+                                        </div>
                                     </div>
-                                    <div class="resource-btn">
-                                        <?php echo $resource['resource_url']?>
-                                    </div>
-                                </div>
-                                <div class="dl-title"><p><?php echo $resource['resource_title']?></p></div>
-                        </div>
-                    <?php endforeach ?>
+                                <div class="dl-title"><p><?php the_sub_field('resource_title'); ?></p></div>
+                            </div>
+					  <?php endwhile;
+                        endif; ?>
+                </div>
 			</div>
 		</section>		
 	</main>

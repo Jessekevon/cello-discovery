@@ -1,7 +1,9 @@
 // Buttons
 // ------------------------------------------------------------------------------------------------
 
-.btn {
+.btn,
+button,
+input[type=submit] {
     padding: 12px;
     background: $color-green;
     color: $color-blue-dark;
@@ -28,4 +30,23 @@
     position: relative;
     z-index: 5;
     cursor: pointer;
+}
+
+form {
+    .btn,
+    button,
+    input[type=submit] {
+        padding: 12px !important;
+        background: $color-green !important;
+        color: $color-blue-dark !important;
+        cursor: pointer !important;
+        border-radius: 5px !important;
+        @include global-transition;
+
+        &:hover {
+            background: $color-blue-dark !important;
+            color: $color-green !important;
+            @include global-transition;
+        }
+    }
 }

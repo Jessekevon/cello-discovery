@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Homepage
+ * Template Name: Home
  *
  * @package WordPress
  * @subpackage cello-discovery
@@ -15,7 +15,7 @@ get_header(); ?>
 					<div class="videobg-aspect">
 						<div class="videobg-make-height">
 							<div class="videobg-hide-controls">
-								<iframe src="https://player.vimeo.com/video/200768478" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+								<iframe src="https://player.vimeo.com/video/<?php echo the_field('homepage_video'); ?>" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 							</div>
 						</div>
 					</div>
@@ -25,8 +25,7 @@ get_header(); ?>
 
 		<section class="intro">
 			<div class="container">
-				<p>The Home for Cello Learners at Every Level.</p>
-				<p>Teaching, nurturing and creating cellists at every stage of development through detailed online cello tutorials, a community of support along with feedback from the experts.</p>
+				<p><?php the_field('intro_text'); ?></p>
 			</div>
 		</section>
 
@@ -40,25 +39,25 @@ get_header(); ?>
 						<div class="icon">
 							<img src="<?php echo get_template_directory_uri(); ?>/images/Step1-01.svg">								
 						</div>
-						<p>Commit to learning the cello. Today is the very best day to begin.</p>
+						<p><?php the_field('step_1');?></p>
 					</div>
 					<div class="col-xs-12 col-sm-3">
 						<div class="icon">
 							<img src="<?php echo get_template_directory_uri(); ?>/images/Step2-01.svg">								
 						</div>
-						<p>Chose a membership level from one month to one year. There are no automatic renewals!</p>
+						<p><?php the_field('step_2');?></p>
 					</div>
 					<div class="col-xs-12 col-sm-3">
 						<div class="icon">
 							<img src="<?php echo get_template_directory_uri(); ?>/images/Step3-01.svg">								
 						</div>
-						<p>Begin your journey by exploring the vast collection of video tutorials. Learn at your home on your schedule.</p>
+						<p><?php the_field('step_3');?></p>
 					</div>
 					<div class="col-xs-12 col-sm-3">
 						<div class="icon">
 							<img src="<?php echo get_template_directory_uri(); ?>/images/Step4-01.svg">								
 						</div>
-						<p>Meet others who are discovering the cello in our community forum. Share your ideas and challenges with like minded individuals.</p>
+						<p><?php the_field('step_4');?></p>
 					</div>
 				</div>
 			</div>
@@ -71,31 +70,27 @@ get_header(); ?>
 				</div>
 				<div class="row center-xs text-center">
 					<div class="col-xs-12 col-sm-3">
-						<h3>1 year for $120</h3>  
-						<p>equivalent to $10/mo.</p> 
-						<p>NO AUTOMATIC RENEWALS!</p>
+						<h3><?php the_field('plan_1_heading', 'option');?></h3>  
+						<p><?php the_field('plan_1_text', 'option');?></p> 
 					</div>
 					<div class="col-xs-12 col-sm-3">
-						<h3>6 months for $90</h3>  
-						<p>equivalent to $15/mo.</p> 
-						<p>NO AUTOMATIC RENEWALS!</p>
+						<h3><?php the_field('plan_2_heading', 'option');?></h3>  
+						<p><?php the_field('plan_2_text', 'option');?></p> 
 					</div>
 					<div class="col-xs-12 col-sm-3">
-						<h3>3 months for $75</h3>  
-						<p>equivalent to $25/mo</p> 
-						<p>NO AUTOMATIC RENEWALS!</p>
+						<h3><?php the_field('plan_3_heading', 'option');?></h3>  
+						<p><?php the_field('plan_3_text', 'option');?></p> 
 					</div>
 					<div class="col-xs-12 col-sm-3">
-						<h3>1 months for $40</h3>  
-						<p>single month</p> 
-						<p>NO AUTOMATIC RENEWALS!</p>
+						<h3><?php the_field('plan_4_heading', 'option');?></h3>  
+						<p><?php the_field('plan_4_text', 'option');?></p> 
 					</div>
 				</div>
 				
 				<div class="row center-xs">
 					<div class="col-xs-12 col-sm-6">
 						<div class="button-wrap">
-							<a href="/register" class="btn">Become a Member</a>
+							<a class="btn member-btn">Become a Member</a>
 						</div>
 					</div>
 				</div>

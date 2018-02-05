@@ -116,19 +116,20 @@
     (function ($) { // Begin jQuery
         $(function () { // DOM ready
             // If a link has a dropdown, add sub menu toggle.
-            $('nav ul li a:not(:only-child)').click(function (e) {
-                $(this).siblings('.sub-menu').toggle();
-                // Close one dropdown when selecting another
-                $('.sub-menu').not($(this).siblings()).hide();
-                e.stopPropagation();
-            });
-            // Clicking away from dropdown will remove the dropdown class
+            // $('nav ul li a:not(:only-child)').click(function (e) {
+            //     $(this).siblings('.sub-menu').toggle();
+            //     // Close one dropdown when selecting another
+            //     $('.sub-menu').not($(this).siblings()).hide();
+            //     e.stopPropagation();
+            // });
+            // Clicking away from dropdown will remove the dsub0ropdown class
             $('html').click(function () {
                 $('.sub-menu').hide();
             });
             // Toggle open and close nav styles on click
             $('#nav-toggle').click(function () {
                 $('nav ul').slideToggle();
+                $('.menu-header-primary').toggleClass('active');
             });
             // Hamburger to X toggle
             $('#nav-toggle').on('click', function () {
@@ -144,12 +145,51 @@
     //     slidesToScroll: 2
     // });
 
-    $('#menu-item-132').on('click', function(){
+    $('.login-btn').on('click', function(){
         $('.form-modal').addClass('active');
+    });
+
+    $('.member-btn').on('click', function () {
+        $('.member-form-modal').addClass('active');
     });
 
     $('.close-modal').on('click', function(){
         $('.modal').removeClass('active');
     });
+
+    $('.slider').slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        arrows: true
+    });
+    
+
+    $('.drawer-arrow').on('click', function() {
+        $('.additional-resources').toggleClass('active');
+        $(this).toggleClass('active');
+    })
+
+    // Accordion
+
+    $('.accordion > li:eq(0) a').addClass('active').next().slideDown();
+
+    $('.accordion a').click(function (j) {
+        var dropDown = $(this).closest('li').find('p');
+
+        $(this).closest('.accordion').find('p').not(dropDown).slideUp();
+
+        if ($(this).hasClass('active')) {
+            $(this).removeClass('active');
+        } else {
+            $(this).closest('.accordion').find('a.active').removeClass('active');
+            $(this).addClass('active');
+        }
+
+        dropDown.stop(false, true).slideToggle();
+
+        j.preventDefault();
+    });
+
 
 })(jQuery);

@@ -18,44 +18,44 @@
 					<div class="col-xs-12 col-sm-3 footer-section">
 						<p class="yellow">Contact Information</p>
 						<ul class="contact-info">
-							<li>M: P.O. Box 5634 Austin, TX</li>
-							<li>T: (555) 555 - 5555</li>
-							<li>E: Questions@cellodiscovery.com</li>
+							<li>M: <?php the_field('mailing_address', 'options');?></li>
+							<li>T: <?php the_field('telephone_number', 'options');?></li>
+							<li>E: <?php the_field('email', 'options');?></li>
 						</ul>
 
 					</div>
 					<div class="col-xs-12 col-sm-6 footer-section">
-						<p class="yellow">FAQ</p>
-						<ul class="row faq-list">
-							<div class="col-xs-12 col-sm-6 inner">
-								<li><a href="#">How do I become a member?</a></li>
-								<li><a href="#">How do I become a member?</a></li>
-								<li><a href="#">How do I become a member?</a></li>
-							</div>
-
-							<div class="col-xs-12 col-sm-6">
-								<li><a href="#">How do I become a member?</a></li>
-								<li><a href="#">How do I become a member?</a></li>
-							</div>
-						</ul>
+						<p class="yellow"><a href="/faq">FAQ</a></p>
+						<?php if( have_rows('faq', 'option') ): ?>
+							<ul class="faq-list">
+								<?php while( have_rows('faq', 'option') ): the_row(); ?>
+									<li><a href="/faq"><?php the_sub_field('question'); ?></a></li>
+								<?php endwhile; ?>
+							</ul>
+						<?php endif; ?>
 					</div>
 					<div class="col-xs-12 col-sm-3 footer-section">
 						<div class="buttons">
 							<a href="/resources" class="btn">Resources</a>
-							<a href="community-forum" class="btn">Community Forum</a>
+							<a href="/forums" class="btn">Community Forum</a>
 						</div>
 					</div>
 				</div>
 			</div>
 
 			<div class="footer-small">
-				<div class="row between-xs">
-					<div class="col-xs-12 col-sm-6">
-						<p>copyright</p>
-					</div>
-					<div class="col-xs-12 col-sm-6">
-						<p>social</p>
-					</div>
+				<div class="copyright">
+					<p>© Cello Discovery</p>
+				</div>
+				<div class="social">
+					<?php
+						if( have_rows('social_media', 'options') ):
+							while ( have_rows('social_media', 'options') ) : the_row(); ?>
+								<a target="_blank"href="<?php the_sub_field('social_media_url', 'options'); ?>"><img src="<?php the_sub_field('social_media_icon', 'options'); ?>"></a>
+
+					  <?php endwhile;
+						endif; 
+					  ?>
 				</div>
 			</div>
 		</footer>
@@ -65,9 +65,19 @@
 	<div class="modal form-modal">
 		<span class="close-modal close"></span>
 			<div class="container">
+				<h1>Login</h1>
 				<?php echo do_shortcode('[pms-login]'); ?>
 			</div>
 	</div>
+
+	<div class="modal member-form-modal">
+		<span class="close-modal close"></span>
+			<div class="container">
+				<h1>Register</h1>
+				<?php echo do_shortcode('[pms-register]'); ?>
+			</div>
+	</div>
+
 
 	<?php wp_footer(); ?>
 </body>

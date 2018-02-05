@@ -34,69 +34,95 @@ get_header(); ?>
 				<!-- Otherwise tradtional full width design -->
 				<div class="row">
 					<div class="col-xs-12">
+						<!-- <div class="videoContainer">
+							<iframe src="https://player.vimeo.com/video/200768478" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+						</div> -->
+
 						<div class="video-lg">
 							<div class="videobg">
-								<div class="videobg-width">
-									<div class="videobg-aspect">
-										<div class="videobg-make-height">
-											<div class="videobg-hide-controls">
-												<iframe src="https://player.vimeo.com/video/200768478" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-											</div>
-										</div>
-									</div>
+									<iframe src="https://player.vimeo.com/video/<?php echo the_field('video_url'); ?>" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 								</div>
 							</div>
-
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<section class="class-levels three-col">
+		<section class="class-levels three-col resources-wrapper">
 			<div class="container">
 				<div class="row additional-resources">
-				  <div class="col-xs-2">
+				  <div class="col-xs-12 col-sm-2">
 						<h3 class="underline">Additional Resources</h3>
 						<ul>
-							<?php foreach ($cfs->get('additional_resources') AS $additional_resources): ?> <!-- open external loop -->
-								<li><?php echo $additional_resources['resource_url']?></li>
-							<?php endforeach ?>
+							<?php
+							if( have_rows('additional_resources') ):
+								while ( have_rows('additional_resources') ) : the_row(); ?>
+									<li><?php the_sub_field('url'); ?></li>
+							  <?php	endwhile;
+							endif; ?>
 						</ul>
 				  </div>
-				  <div class="col-xs-9 col-xs-offset-1">
-					<h2 class="underline">Tuning Your Cello</h2>
-					  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				  <div class="col-xs-12 col-sm-9 col-sm-offset-1">
+					<?php if( get_field('partner_name') ): ?>
+					<h2 class="underline"><?php the_field('video_description_title'); ?></h2>
+					<?php else: ?>
+					<h2 class="underline"><?php the_title(); ?></h2>
+					<?php endif; ?>
+					  <p><?php the_field('video_description_text'); ?></p>
 				  </div>
 				</div>
+			</div>
+
+			<div class="drawer-arrow">
+				<img src="<?php echo get_template_directory_uri(); ?>/images/dropdpwn.svg">								
 			</div>
 		</section>
 
-		<section class="releated-posts green-bg three-col">
+		<section class="related-posts green-bg three-col">
 			<div class="container">
-				<!-- <//?php echo do_shortcode('[custom-related-posts title="Related Posts" order_by="title" order="ASC" none_text="None found"]');?> -->
-
 				<div class="row center-xs">
 					<h2 class="underline">Other Videos in This Category</h2>
 				</div>
-				<div class="row center-xs">
-					<div class="col-xs-12 col-sm-3">
-						<div class="related-video">
-						
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-3">
-						<div class="related-video">
-						
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-3">
-						<div class="related-video">
-						
-						</div>
-					</div>
+					
+					<div class="slider">
+						<?php	// get the custom post type's taxonomy terms
+							
+							$custom_taxterms = wp_get_object_terms( $post->ID, 'beginning-videos', array('fields' => 'ids') );
+							// arguments
+							$args = array(
+							'post_type' => 'beginning-video',
+							'post_status' => 'publish',
+							'orderby' => 'rand',
+							'tax_query' => array(
+								array(
+									'taxonomy' => 'beginning-videos',
+									'field' => 'id',
+									'terms' => $custom_taxterms
+								)
+							),
+							'post__not_in' => array ($post->ID),
+							);
+							$related_items = new WP_Query( $args );
+							// loop over query
+							if ($related_items->have_posts()) : 
+							while ( $related_items->have_posts() ) : $related_items->the_post(); ?>
+								<div>
+									<a href="<?php the_permalink(); ?>">
+										<div class="video-wrapper" style="background-image: url('<?php echo get_field('video_thumbnail');?>')">
+											
+										</div>
+									</a>
+									<?php the_title(); ?>
+								</div>
+							<?php 
+								endwhile;
+								endif;
+								wp_reset_postdata(); 
+							?>
 				</div>
 			</div>
+ 			 
 		</section>
 
 	</main>

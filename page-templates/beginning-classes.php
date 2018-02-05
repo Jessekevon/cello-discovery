@@ -11,7 +11,7 @@ get_header(); ?>
 	<main class="video-classes">        
         <div class="container">
             <div class="row">
-                <div class="col-xs-3">
+                <div class="col-xs-12 col-sm-3">
                     <div class="side-bar">
                         <div class="filter-results">
                             <div class="search-box">
@@ -56,7 +56,7 @@ get_header(); ?>
                     </div>
                 </div>
 
-                <div class="col-xs-9">
+                <div class="col-xs-12 col-sm-9">
                     <section class="no-padding">
                         <div class="container">
                             <div class="row center-xs">

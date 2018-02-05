@@ -7,8 +7,8 @@ footer {
         margin-top: 20px;
 
         li {
-            font-size: 12px;
-            color: $color-white;
+            font-size: 11px;
+            color: $color-off-white;
             line-height: 2;
 
             a {
@@ -19,13 +19,17 @@ footer {
         }
 
         &.faq-list {
+            column-count: 2;
+            column-gap: 35px;
 
             li {
                 margin-bottom: 10px;
+                line-height: 1.6;
 
                 a {
                     border-bottom: 1px solid #3F92BB;    
                     padding-bottom: 5px;
+                    display: inline-block;
                 }
             }
 
@@ -59,17 +63,42 @@ footer {
     }
 
     .footer-small {
-        padding: 0 20px;
+        padding: 0 30px;
         min-height: 70px;
-        background: $color-black;
+        background: $color-grey-dark;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .copyright,
+        .social {
+            height: 100%;
+        }
+
+        .social {
+            img {
+                height: 30px;
+                width: 30px;
+                margin: 0 5px;
+            }
+        }
+
+        p {
+            color: $color-off-white;
+            font-size: 11px;
+        }
     }
 
     .footer-section {
         &:nth-child(2) {
-            border-left: 1px solid #3F92BB;
-            border-right: 1px solid #3F92BB;
-            padding: 0 50px;
+            margin: 20px 0;
 
+            @include MQ(S) {
+                margin: 0;
+                border-left: 1px solid #3F92BB;
+                border-right: 1px solid #3F92BB;
+                padding: 0 50px;
+            }
         }
 
         &:last-child {
