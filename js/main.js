@@ -164,7 +164,6 @@
         arrows: true
     });
     
-
     $('.drawer-arrow').on('click', function() {
         $('.additional-resources').toggleClass('active');
         $(this).toggleClass('active');

@@ -26,6 +26,32 @@ get_header(); ?>
 		<section class="intro">
 			<div class="container">
 				<p><?php the_field('intro_text'); ?></p>
+				
+				<!-- Vimeo iframe Row -->
+				<div class="row vimeo-row">
+				  <div class="col-xs-12 col-sm-3">
+					<div class="iframe-wrap">
+						<iframe src="https://player.vimeo.com/video/<?php echo the_field('homepage_video'); ?>" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					</div>
+				  </div>
+				<div class="col-xs-12 col-sm-3">
+					<div class="iframe-wrap">
+						<iframe src="https://player.vimeo.com/video/<?php echo the_field('homepage_video'); ?>" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					</div>
+				  </div>
+
+				<div class="col-xs-12 col-sm-3">
+					<div class="iframe-wrap">
+						<iframe src="https://player.vimeo.com/video/<?php echo the_field('homepage_video'); ?>" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					</div>
+				  </div>
+
+				<div class="col-xs-12 col-sm-3">
+					<div class="iframe-wrap">
+						<iframe src="https://player.vimeo.com/video/<?php echo the_field('homepage_video'); ?>" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					</div>
+				  </div>
+				</div>
 			</div>
 		</section>
 

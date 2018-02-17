@@ -35,24 +35,7 @@ get_header(); ?>
 				<div class="row">
                     <p class="large">Instant Downloads</p>
 				</div>
-				<div class="row">
-                    <?php
-						if( have_rows('resources') ):
-                            while ( have_rows('resources') ) : the_row(); ?>
-                            <div class="col-xs-12 col-sm-3 resource-box">
-                                    <div class="download-box">
-                                        <div class="icon">
-                                            <img src="<?php the_sub_field('resource_icon'); ?>">
-                                        </div>
-                                        <div class="resource-btn">
-                                            <?php the_sub_field('resource_url'); ?>
-                                        </div>
-                                    </div>
-                                <div class="dl-title"><p><?php the_sub_field('resource_title'); ?></p></div>
-                            </div>
-					  <?php endwhile;
-                        endif; ?>
-                </div>
+                <?php echo do_shortcode('[downloads]');?>
 			</div>
 		</section>		
 	</main>
