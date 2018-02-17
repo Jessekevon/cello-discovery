@@ -71,7 +71,7 @@ get_header(); ?>
                     <section class="video-list">
                         <div class="row">
                             <?php $imageid = get_post_meta(get_the_ID(), 'video_thumbnail', true); ?>
-                            <?php echo do_shortcode('[ajax_load_more id="videos" container_type="div" post_type="intermediate-video" posts_per_page="30" taxonomy="intermediate-videos" search="'. $term .'" taxonomy_terms="" taxonomy_operator="IN" scroll="false" order="ASC" orderby="title" transition="fade" button_label="Loading"]'); ?>
+                            <?php echo do_shortcode('[ajax_load_more id="videos" container_type="div" post_type="intermediate-video" posts_per_page="30" taxonomy="intermediate-videos" search="'. $term .'" taxonomy_terms="" taxonomy_operator="IN" scroll="false" order="ASC" meta_key="video_order" orderby="meta_value" transition="fade" button_label="Loading"]'); ?>
                         </div>
                     </section>
                 </div>

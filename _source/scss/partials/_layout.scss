@@ -711,3 +711,8 @@ p {
 .vimeo-row {
     margin-top: 50px;
 }
+
+.seed-csp4 h1, .seed-csp4 h2, .seed-csp4 h3, .seed-csp4 h4, .seed-csp4 h5, .seed-csp4 h6 {
+    color: $color-green;
+    font-family: $font-primary;
+}
