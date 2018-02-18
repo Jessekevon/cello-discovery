@@ -13,42 +13,120 @@
  */
 
 get_header(); ?>
+	<main class="home">
+		<div class="hero pull">
+			<div class="videobg">
+				<div class="videobg-width">
+					<div class="videobg-aspect">
+						<div class="videobg-make-height">
+							<div class="videobg-hide-controls">
+								<iframe src="https://player.vimeo.com/video/<?php echo the_field('homepage_video'); ?>" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-<div id="primary" class="content-area">
-	<main id="main" class="site-main" role="main">
+		<section class="intro">
+			<div class="container">
+				<p><?php the_field('intro_text'); ?></p>
+				
+				<!-- Vimeo iframe Row -->
+				<div class="row vimeo-row">
+				  <div class="col-xs-12 col-sm-3">
+					<div class="iframe-wrap">
+						<iframe src="https://player.vimeo.com/video/<?php echo the_field('homepage_video'); ?>" width="640" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					</div>
+				  </div>
+				<div class="col-xs-12 col-sm-3">
+					<div class="iframe-wrap">
+						<iframe src="https://player.vimeo.com/video/<?php echo the_field('homepage_video'); ?>" width="640" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					</div>
+				  </div>
 
-		<?php // Show the selected frontpage content.
-		if ( have_posts() ) :
-			while ( have_posts() ) : the_post();
-				get_template_part( 'template-parts/page/content', 'front-page' );
-			endwhile;
-		else : // I'm not sure it's possible to have no posts when this page is shown, but WTH.
-			get_template_part( 'template-parts/post/content', 'none' );
-		endif; ?>
+				<div class="col-xs-12 col-sm-3">
+					<div class="iframe-wrap">
+						<iframe src="https://player.vimeo.com/video/<?php echo the_field('homepage_video'); ?>" width="640" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					</div>
+				  </div>
 
-		<?php
-		// Get each of our panels and show the post data.
-		if ( 0 !== twentyseventeen_panel_count() || is_customize_preview() ) : // If we have pages to show.
+				<div class="col-xs-12 col-sm-3">
+					<div class="iframe-wrap">
+						<iframe src="https://player.vimeo.com/video/<?php echo the_field('homepage_video'); ?>" width="640" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					</div>
+				  </div>
+				</div>
+			</div>
+		</section>
 
-			/**
-			 * Filter number of front page sections in Twenty Seventeen.
-			 *
-			 * @since Twenty Seventeen 1.0
-			 *
-			 * @param int $num_sections Number of front page sections.
-			 */
-			$num_sections = apply_filters( 'twentyseventeen_front_page_sections', 4 );
-			global $twentyseventeencounter;
+		<section class="how-it-works yellow-bg three-col">
+			<div class="container">
+				<div class="row center-xs">
+					<h2 class="underline">How it Works</h2>
+				</div>
+				<div class="row center-xs text-center">
+					<div class="col-xs-12 col-sm-3">
+						<div class="icon">
+							<img src="<?php echo get_template_directory_uri(); ?>/images/Step1-01.svg">								
+						</div>
+						<p><?php the_field('step_1');?></p>
+					</div>
+					<div class="col-xs-12 col-sm-3">
+						<div class="icon">
+							<img src="<?php echo get_template_directory_uri(); ?>/images/Step2-01.svg">								
+						</div>
+						<p><?php the_field('step_2');?></p>
+					</div>
+					<div class="col-xs-12 col-sm-3">
+						<div class="icon">
+							<img src="<?php echo get_template_directory_uri(); ?>/images/Step3-01.svg">								
+						</div>
+						<p><?php the_field('step_3');?></p>
+					</div>
+					<div class="col-xs-12 col-sm-3">
+						<div class="icon">
+							<img src="<?php echo get_template_directory_uri(); ?>/images/Step4-01.svg">								
+						</div>
+						<p><?php the_field('step_4');?></p>
+					</div>
+				</div>
+			</div>
+		</section>
 
-			// Create a setting and control for each of the sections available in the theme.
-			for ( $i = 1; $i < ( 1 + $num_sections ); $i++ ) {
-				$twentyseventeencounter = $i;
-				twentyseventeen_front_page_section( null, $i );
-			}
-
-	endif; // The if ( 0 !== twentyseventeen_panel_count() ) ends here. ?>
-
-	</main><!-- #main -->
-</div><!-- #primary -->
-
-<?php get_footer();
+		<section class="membership three-col">
+			<div class="container">
+				<div class="row center-xs">
+					<h2 class="underline">Membership</h2>
+				</div>
+				<div class="row center-xs text-center">
+					<div class="col-xs-12 col-sm-3">
+						<h3><?php the_field('plan_1_heading', 'option');?></h3>  
+						<p><?php the_field('plan_1_text', 'option');?></p> 
+					</div>
+					<div class="col-xs-12 col-sm-3">
+						<h3><?php the_field('plan_2_heading', 'option');?></h3>  
+						<p><?php the_field('plan_2_text', 'option');?></p> 
+					</div>
+					<div class="col-xs-12 col-sm-3">
+						<h3><?php the_field('plan_3_heading', 'option');?></h3>  
+						<p><?php the_field('plan_3_text', 'option');?></p> 
+					</div>
+					<div class="col-xs-12 col-sm-3">
+						<h3><?php the_field('plan_4_heading', 'option');?></h3>  
+						<p><?php the_field('plan_4_text', 'option');?></p> 
+					</div>
+				</div>
+				
+				<div class="row center-xs">
+					<div class="col-xs-12 col-sm-6">
+						<div class="button-wrap">
+							<a class="btn member-btn">Become a Member</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+<?php
+get_footer();

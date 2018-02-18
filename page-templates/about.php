@@ -120,7 +120,7 @@ get_header(); ?>
 				<div class="row center-xs">
 					<h2 class="underline">Testimonials</h2>
 				</div>
-				<div class="row">
+				<div class="testimonial-slider row">
 					<?php
 						if( have_rows('testimonials') ):
 							while ( have_rows('testimonials') ) : the_row(); ?>

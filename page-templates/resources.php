@@ -34,8 +34,30 @@ get_header(); ?>
 			<div class="container">
 				<div class="row">
                     <p class="large">Instant Downloads</p>
-				</div>
-                <?php echo do_shortcode('[downloads]');?>
+                </div>
+                <div class="resource-slider">
+                    <?php
+						if( have_rows('resources') ):
+                            while ( have_rows('resources') ) : the_row(); ?>
+                            <div class="resource-box">
+                                    <div class="download-box">
+                                        <div class="icon">
+                                            <img src="<?php the_sub_field('resource_icon'); ?>">
+                                        </div>
+                                        <div class="resource-btn">
+                                            <?php the_sub_field('resource_url'); ?>
+                                        </div>
+                                    </div>
+                                <div class="dl-title"><p><?php the_sub_field('resource_title'); ?></p></div>
+                        </div>
+					  <?php endwhile;
+                        endif; ?>
+
+                </div>
+
+                <!-- <div class="resource-slider">
+                    <//?php echo do_shortcode('[downloads]');?>
+                </div> -->
 			</div>
 		</section>		
 	</main>

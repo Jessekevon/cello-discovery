@@ -65,9 +65,9 @@ function jk_create_post_types() {
         'capability_type'    => 'post',
         'has_archive'        => true,
         'hierarchical'       => false,
-        'menu_position'      => null,
+		'menu_position'      => null,
+		'taxonomies' 		 => array('post_tag'),
         'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
-
 		'menu_icon' => 'dashicons-controls-play',
 	]);
 		register_post_type('intermediate-video', [
@@ -85,9 +85,9 @@ function jk_create_post_types() {
         'capability_type'    => 'post',
         'has_archive'        => true,
         'hierarchical'       => false,
-        'menu_position'      => null,
+		'menu_position'      => null,
+		'taxonomies' 		 => array('post_tag'),
         'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
-
 		'menu_icon' => 'dashicons-controls-play',
 	]);
 
@@ -106,9 +106,9 @@ function jk_create_post_types() {
         'capability_type'    => 'post',
         'has_archive'        => true,
         'hierarchical'       => false,
-        'menu_position'      => null,
+		'menu_position'      => null,
+		'taxonomies' 		 => array('post_tag'),
         'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
-
 		'menu_icon' => 'dashicons-controls-play',
 	]);
 
@@ -151,8 +151,6 @@ function jk_create_taxonomies() {
 		'hierarchical' 	=> TRUE,
 		'public'		=> TRUE,
 	]);
-
-
 }
 add_action('init', 'jk_create_taxonomies');
 

@@ -139,11 +139,17 @@
     })(jQuery); // end jQuery
 
     // Slider 
-    // $('.testimonial-slider').slick({
-    //     infinite: true,
-    //     slidesToShow: 2,
-    //     slidesToScroll: 2
-    // });
+    $('.testimonial-slider').slick({
+        infinite: true,
+        slidesPerRow: 1,
+        rows: 2,
+    });
+
+    $('.resource-slider').slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+    });
 
     $('.login-btn').on('click', function(){
         $('.form-modal').addClass('active');

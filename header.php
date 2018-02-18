@@ -21,6 +21,8 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width">
+	<meta name="description"  content="The Home for Cello Learners at Every Level. Teaching, nurturing and creating cellists at every stage of development through detailed online cello tutorials, a community of support along with feedback from the experts." />
+	<meta name="keywords" itemprop="keywords" content="cello, lessons, tutorial, subscription, music" />
 	<title><?php wp_title( '|', true, 'right' ); ?>Cello Discovery</title>
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">

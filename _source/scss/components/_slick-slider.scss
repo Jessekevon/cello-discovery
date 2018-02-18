@@ -70,7 +70,7 @@
     line-height: 1;
 
     opacity: .75;
-    color: white;
+    color: $color-blue;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -325,3 +325,35 @@
 //     }
 // }
 
+.testimonial-slider {
+    // .slick-slide {
+    //     width: 100% !important;
+    // }
+}
+
+    .slick-next::before {
+            background: url('../../images/right_arrow.svg') no-repeat;
+
+            content: "";
+            display: block;
+            height: 40px;
+            width: 30px;
+            background-size: 30px;
+    }
+    .slick-prev::before {
+            background: url('../../images/left_arrow.svg') no-repeat;
+            //   background-image: url('../../images/hero-img.png');
+
+            content: "";
+            display: block;
+            height: 40px;
+            width: 30px;
+            background-size: 30px;
+    }
+
+    // .resource-slider {
+    //     .slick-track,
+    //     .slick-slide {
+    //         width: 100% !important;
+    //     }
+    // }
