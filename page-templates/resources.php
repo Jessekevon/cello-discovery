@@ -37,8 +37,8 @@ get_header(); ?>
                 </div>
                 <div class="resource-slider">
                     <?php
-						if( have_rows('resources') ):
-                            while ( have_rows('resources') ) : the_row(); ?>
+						if( have_rows('resources_instant_downloads') ):
+                            while ( have_rows('resources_instant_downloads') ) : the_row(); ?>
                             <div class="resource-box">
                                     <div class="download-box">
                                         <div class="icon">
@@ -48,12 +48,57 @@ get_header(); ?>
                                             <?php the_sub_field('resource_url'); ?>
                                         </div>
                                     </div>
-                                <div class="dl-title"><p><?php the_sub_field('resource_title'); ?></p></div>
+                                <!-- <div class="dl-title"><p><//?php the_sub_field('resource_title'); ?></p></div> -->
                         </div>
 					  <?php endwhile;
                         endif; ?>
-
                 </div>
+
+                <div class="row">
+                    <p class="large">Sheet Music</p>
+                </div>
+                <div class="resource-slider2">
+                    <?php
+						if( have_rows('resources_sheet_music') ):
+                            while ( have_rows('resources_sheet_music') ) : the_row(); ?>
+                            <div class="resource-box">
+                                    <div class="download-box">
+                                        <div class="icon">
+                                            <img src="<?php the_sub_field('resource_icon'); ?>">
+                                        </div>
+                                        <div class="resource-btn">
+                                            <?php the_sub_field('resource_url'); ?>
+                                        </div>
+                                    </div>
+                                <!-- <div class="dl-title"><p><//?php the_sub_field('resource_title'); ?></p></div> -->
+                        </div>
+					  <?php endwhile;
+                        endif; ?>
+                </div>
+
+				<div class="row">
+                    <p class="large">Music Library</p>
+                </div>
+                <div class="resource-slider3">
+                    <?php
+						if( have_rows('resources_music_library') ):
+                            while ( have_rows('resources_music_library') ) : the_row(); ?>
+                            <div class="resource-box">
+                                    <div class="download-box">
+                                        <div class="icon">
+                                            <img src="<?php the_sub_field('resource_icon'); ?>">
+                                        </div>
+                                        <div class="resource-btn">
+                                            <?php the_sub_field('resource_url'); ?>
+                                        </div>
+                                    </div>
+                                <!-- <div class="dl-title"><p><//?php the_sub_field('resource_title'); ?></p></div> -->
+                        </div>
+					  <?php endwhile;
+                        endif; ?>
+                </div>
+
+
 
                 <!-- <div class="resource-slider">
                     <//?php echo do_shortcode('[downloads]');?>

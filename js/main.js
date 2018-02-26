@@ -151,6 +151,19 @@
         slidesToScroll: 1,
     });
 
+    $('.resource-slider2').slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+    });
+
+    $('.resource-slider3').slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+    });
+
+
     $('.login-btn').on('click', function(){
         $('.form-modal').addClass('active');
     });
