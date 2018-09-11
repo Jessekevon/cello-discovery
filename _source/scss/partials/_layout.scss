@@ -726,3 +726,21 @@ p {
     color: $color-green;
     font-family: $font-primary;
 }
+
+// Page specific
+
+.page-template-video-classes {
+    .navigation {
+        margin-bottom: 0;
+    }
+}
+
+// Load More button override
+
+.alm-btn-wrap {
+    .alm-load-more-btn {
+        &.done {
+            display: none;
+        }
+    }
+}

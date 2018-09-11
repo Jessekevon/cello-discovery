@@ -11,7 +11,48 @@ get_header(); ?>
 
 <?php do_shortcode('[pms-restrict subscription_plans="20,21,22,23"]');?>
 	<main class="video-classes">        
-        <section class="how-it-works glossary three-col no-padding-top">
+		<section class="class-levels with-icons green-bg three-col">
+			<div class="container">
+				<div class="row center-xs">
+					<h2 class="underline"><?php echo the_field('page_title'); ?></h2>
+				</div>
+				<div class="row middle-xs">
+				  <div class="col-xs-12 col-sm-2">
+						<div class="icon">
+							<img src="<?php echo get_template_directory_uri(); ?>/images/beginner-01.svg">								
+						</div>
+				  </div>
+				  <div class="col-xs-12 col-sm-10">
+					  <p class="lg"><?php the_field('beginner_level_title', 'option'); ?></p>
+					  <p><?php the_field('beginner_level_description', 'option'); ?></p>
+				  </div>
+				</div>
+				<div class="row middle-xs">
+				  <div class="col-xs-12 col-sm-2">
+						<div class="icon">
+							<img src="<?php echo get_template_directory_uri(); ?>/images/intermediate-01.svg">								
+						</div>
+				  </div>
+				  <div class="col-xs-12 col-sm-10">
+					  <p class="lg"><?php the_field('intermediate_level_title', 'option'); ?></p>
+					  <p><?php the_field('intermediate_level_description', 'option'); ?></p>
+				  </div>
+				</div>
+				<div class="row middle-xs">
+				  <div class="col-xs-12 col-sm-2">
+						<div class="icon">
+							<img src="<?php echo get_template_directory_uri(); ?>/images/Advanced-01.svg">								
+						</div>
+				  </div>
+				  <div class="col-xs-12 col-sm-10">
+					  <p class="lg"><?php the_field('advanced_level_title', 'option'); ?></p>
+					  <p><?php the_field('advanced_level_description', 'option'); ?></p>
+				  </div>
+				</div>
+			</div>
+        </section>
+
+        <section class="how-it-works glossary three-col">
 			<div class="container">
 				<div class="row center-xs">
 					<h2 class="underline">Video Glossary</h2>
@@ -73,47 +114,6 @@ get_header(); ?>
                 </div>
 			</div>
 		</section>
-
-		<section class="class-levels with-icons green-bg three-col">
-			<div class="container">
-				<div class="row center-xs">
-					<h2 class="underline">Class Levels</h2>
-				</div>
-				<div class="row middle-xs">
-				  <div class="col-xs-12 col-sm-2">
-						<div class="icon">
-							<img src="<?php echo get_template_directory_uri(); ?>/images/beginner-01.svg">								
-						</div>
-				  </div>
-				  <div class="col-xs-12 col-sm-10">
-					  <p class="lg"><?php the_field('beginner_level_title', 'option'); ?></p>
-					  <p><?php the_field('beginner_level_description', 'option'); ?></p>
-				  </div>
-				</div>
-				<div class="row middle-xs">
-				  <div class="col-xs-12 col-sm-2">
-						<div class="icon">
-							<img src="<?php echo get_template_directory_uri(); ?>/images/intermediate-01.svg">								
-						</div>
-				  </div>
-				  <div class="col-xs-12 col-sm-10">
-					  <p class="lg"><?php the_field('intermediate_level_title', 'option'); ?></p>
-					  <p><?php the_field('intermediate_level_description', 'option'); ?></p>
-				  </div>
-				</div>
-				<div class="row middle-xs">
-				  <div class="col-xs-12 col-sm-2">
-						<div class="icon">
-							<img src="<?php echo get_template_directory_uri(); ?>/images/Advanced-01.svg">								
-						</div>
-				  </div>
-				  <div class="col-xs-12 col-sm-10">
-					  <p class="lg"><?php the_field('advanced_level_title', 'option'); ?></p>
-					  <p><?php the_field('advanced_level_description', 'option'); ?></p>
-				  </div>
-				</div>
-			</div>
-        </section>
 
 	</main>
 <?php do_shortcode('[/pms-restrict]');?>

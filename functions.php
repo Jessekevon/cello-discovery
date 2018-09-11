@@ -51,10 +51,10 @@ add_action('init', 'jk_register_menus');
  */
 function jk_create_post_types() {
 	register_post_type('beginning-video', [
-		'label' 	=> 'Beginning Videos',
+		'label' 	=> 'Square One',
 		[
-			'name' 			=> 'Beginning Videos',
-			'singular_name' => 'Beginning Video',
+			'name' 			=> 'Square One',
+			'singular_name' => 'Square One',
 		],
         'public'             => true,
         'publicly_queryable' => true,
@@ -67,14 +67,14 @@ function jk_create_post_types() {
         'hierarchical'       => false,
 		'menu_position'      => null,
 		'taxonomies' 		 => array('post_tag'),
-        'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
+        'supports'           => array( 'title', 'author', 'thumbnail'),
 		'menu_icon' => 'dashicons-controls-play',
 	]);
 		register_post_type('intermediate-video', [
-		'label' 	=> 'Intermediate Videos',
+		'label' 	=> 'Beyond the Basics',
 		[
-			'name' 			=> 'Intermediate Videos',
-			'singular_name' => 'Intermediate Video',
+			'name' 			=> 'Beyond the Basics',
+			'singular_name' => 'Beyond the Basics',
 		],
         'public'             => true,
         'publicly_queryable' => true,
@@ -87,15 +87,15 @@ function jk_create_post_types() {
         'hierarchical'       => false,
 		'menu_position'      => null,
 		'taxonomies' 		 => array('post_tag'),
-        'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
+        'supports'           => array( 'title', 'author', 'thumbnail'),
 		'menu_icon' => 'dashicons-controls-play',
 	]);
 
 	register_post_type('advanced-video', [
-		'label' 	=> 'Advanced Videos',
+		'label' 	=> 'Refinement and Technique',
 		[
-			'name' 			=> 'Intermediate Videos',
-			'singular_name' => 'Advanced Video',
+			'name' 			=> 'Refinement and Technique',
+			'singular_name' => 'Refinement and Technique',
 		],
         'public'             => true,
         'publicly_queryable' => true,
@@ -108,7 +108,7 @@ function jk_create_post_types() {
         'hierarchical'       => false,
 		'menu_position'      => null,
 		'taxonomies' 		 => array('post_tag'),
-        'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
+        'supports'           => array( 'title', 'author', 'thumbnail'),
 		'menu_icon' => 'dashicons-controls-play',
 	]);
 
@@ -121,10 +121,10 @@ add_action('init', 'jk_create_post_types');
  */
 function jk_create_taxonomies() {
 	register_taxonomy('beginning-videos', 'beginning-video', [
-		'label'			=> 'Beginning Video Terms',
+		'label'			=> 'Square One Terms',
 		'labels'		=> [
-			'name'			=> 'Beginning Video Terms',
-			'singular_name'	=> 'Beginning Video Term',
+			'name'			=> 'Square One Terms',
+			'singular_name'	=> 'Square One Term',
 		],
 		'show_ui' 		=> TRUE,
 		'hierarchical' 	=> TRUE,
@@ -132,20 +132,20 @@ function jk_create_taxonomies() {
 	]);
 
 	register_taxonomy('intermediate-videos', 'intermediate-video', [
-		'label'			=> 'Intermediate Video Terms',
+		'label'			=> 'Beyond the Basics Terms',
 		'labels'		=> [
-			'name'			=> 'Intermediate Video Terms',
-			'singular_name'	=> 'Intermediate Video Term',
+			'name'			=> 'Beyond the Basics Terms',
+			'singular_name'	=> 'Beyond the Basics Term',
 		],
 		'show_ui' 		=> TRUE,
 		'hierarchical' 	=> TRUE,
 		'public'		=> TRUE,
 	]);
 	register_taxonomy('advanced-videos', 'advanced-video', [
-		'label'			=> 'Advanced Video Terms',
+		'label'			=> 'Refinement and Technique Terms',
 		'labels'		=> [
-			'name'			=> 'Advanced Video Terms',
-			'singular_name'	=> 'Advanced Video Term',
+			'name'			=> 'Refinement and Technique Terms',
+			'singular_name'	=> 'Refinement and Technique Term',
 		],
 		'show_ui' 		=> TRUE,
 		'hierarchical' 	=> TRUE,

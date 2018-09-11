@@ -62,7 +62,7 @@ get_header(); ?>
                         <div class="container">
                             <div class="row center-xs">
                                 <div class="col-xs-12">
-                                    <h2 class="underline">Video Classes: Advanced</h2>
+                                    <h2 class="underline">Video Classes: <?php the_title(); ?></h2>
                                 </div>
                             </div>
                         </div>
