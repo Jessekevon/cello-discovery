@@ -17,11 +17,21 @@
     &.pull {
       margin-top: -145px;
       z-index: 1;
-      background-image: url('../../images/hero-img.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      opacity: 0.85;
+      // background-image: url('../../images/hero-img.png');
+      // background-size: cover;
+      // background-position: center;
+      // background-repeat: no-repeat;
+      // opacity: 0.85;
+
+      .video-lg {
+        position: absolute;
+        top: 0;
+
+        .player .vp-title,
+        .player .vp-sidedock {
+          display: none !important;
+        }
+      }
     }
 }
 

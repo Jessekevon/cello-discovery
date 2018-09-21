@@ -28,9 +28,12 @@ get_header(); ?>
                                     <ul class="advanced-filter-menu check-select" data-type="checkbox" data-parameter="taxonomy-terms"> 
                                     
                                         <div>
+                                        
                                         <?php
                                             $taxonomy_t = 'intermediate-videos';
-                                            $terms_t = get_terms($taxonomy_t); // Get all terms of a taxonomy
+                                            $terms_t = get_terms($taxonomy_t, array('parent' => 0, 'hide_empty' => false));   
+
+                                            // $terms_t = get_terms($taxonomy_t); // Get all terms of a taxonomy
 
                                             if ( $terms_t && !is_wp_error( $terms_t ) ) :
                                                 ?>
@@ -39,6 +42,17 @@ get_header(); ?>
                                                             <div class="checkbox-wrap">
                                                                 <input id="<?php echo $term_t->slug; ?>" value="<?php echo $term_t->slug; ?>" type="checkbox">
                                                                 <label for="<?php echo $term_t->slug; ?>"><?php echo $term_t->name; ?></label>
+                                                                <?php $childTerms = get_terms($taxonomy_t, array('parent' => $term_t->term_id, 'orderby' => 'slug', 'hide_empty' => false)); ?>
+                                                                <ul>
+                                                                    <?php foreach( $childTerms as $childTerm ) { ?>
+                                                                        <li>
+                                                                            <div class="checkbox-wrap child">
+                                                                                <input id="<?php echo $childTerm->slug; ?>" value="<?php echo $childTerm->slug; ?>" type="checkbox">
+                                                                                <label for="<?php echo $childTerm->slug; ?>"><?php echo $childTerm->name; ?></label>
+                                                                            </div>
+                                                                        </li>
+                                                                   <?php } ?>
+                                                                </ul>
                                                             </div>
                                                         </li>
                                                     <?php } ?>

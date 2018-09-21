@@ -7,10 +7,18 @@
  * @since cello-discovery 1.0
  */
 
+//  Don't think we need this actually, homepage is coming from default front-page.php
+
 get_header(); ?>
 	<main class="home">
 		<div class="hero pull">
-			<div class="videobg">
+		<div class="vimeo-wrapper">
+				<!-- <iframe src="https://vimeo.com/204254929" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+				</iframe> -->
+				<iframe src="https://player.vimeo.com/video/<?php echo the_field('homepage_video'); ?>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+			</div>
+			<!-- <div class="videobg">
 				<div class="videobg-width">
 					<div class="videobg-aspect">
 						<div class="videobg-make-height">
@@ -20,7 +28,7 @@ get_header(); ?>
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 		</div>
 
 		<section class="intro">

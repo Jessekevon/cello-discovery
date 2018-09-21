@@ -15,17 +15,21 @@
 get_header(); ?>
 	<main class="home">
 		<div class="hero pull">
-			<div class="videobg">
-				<div class="videobg-width">
-					<div class="videobg-aspect">
-						<div class="videobg-make-height">
-							<div class="videobg-hide-controls">
+			<!-- <div class="vimeo-wrapper"> -->
+				<!-- <iframe src="https://vimeo.com/204254929" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+				</iframe> -->
+				<!-- <iframe src="https://player.vimeo.com/video/<//?php echo the_field('homepage_video'); ?>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> -->
+			<!-- </div> -->
+
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="video-lg">
+						<div class="videobg">
 								<iframe src="https://player.vimeo.com/video/<?php echo the_field('homepage_video'); ?>" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 		</div>
 
 		<section class="intro">
@@ -36,24 +40,24 @@ get_header(); ?>
 				<div class="row vimeo-row">
 				  <div class="col-xs-12 col-sm-3">
 					<div class="iframe-wrap">
-						<iframe src="https://player.vimeo.com/video/<?php echo the_field('homepage_video'); ?>" width="640" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+						<iframe src="https://player.vimeo.com/video/<?php echo the_field('intro_video_1'); ?>" width="640" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 					</div>
 				  </div>
 				<div class="col-xs-12 col-sm-3">
 					<div class="iframe-wrap">
-						<iframe src="https://player.vimeo.com/video/<?php echo the_field('homepage_video'); ?>" width="640" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-					</div>
-				  </div>
-
-				<div class="col-xs-12 col-sm-3">
-					<div class="iframe-wrap">
-						<iframe src="https://player.vimeo.com/video/<?php echo the_field('homepage_video'); ?>" width="640" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+						<iframe src="https://player.vimeo.com/video/<?php echo the_field('intro_video_2'); ?>" width="640" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 					</div>
 				  </div>
 
 				<div class="col-xs-12 col-sm-3">
 					<div class="iframe-wrap">
-						<iframe src="https://player.vimeo.com/video/<?php echo the_field('homepage_video'); ?>" width="640" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+						<iframe src="https://player.vimeo.com/video/<?php echo the_field('intro_video_3'); ?>" width="640" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					</div>
+				  </div>
+
+				<div class="col-xs-12 col-sm-3">
+					<div class="iframe-wrap">
+						<iframe src="https://player.vimeo.com/video/<?php echo the_field('intro_video_4'); ?>" width="640" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 					</div>
 				  </div>
 				</div>
